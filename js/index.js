@@ -7,7 +7,7 @@ const weatherTemp = document.querySelector("#weather-temp");
 const weatherFeelsLike = document.querySelector("#weather-feelsLike");
 const weatherHumid = document.querySelector("#weather-humid");
 const weatherIcon = document.querySelector("#weather-icon");
-const apiProxy = "https://sleepy-taiga-06038.herokuapp.com"
+const apiProxy = "https://weather-site-giant.vercel.app"
 
 const updateWeather = (location, desc, temp, feelsLike, humid, icon) => {
     weatherLocation.innerHTML = location;
