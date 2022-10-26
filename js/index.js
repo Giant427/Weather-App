@@ -36,7 +36,7 @@ const loadWeatherData = (query) => {
                 let temp = data.main.temp + " °C";
                 let feelsLike = "Feels like " + data.main.feels_like + "°C";
                 let humid = "Humidity " + data.main.humidity + "%";
-                let icon = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+                let icon = apiProxy + "/api/weather-icon/" + data.weather[0].icon + "@2x.png";
                 updateWeather(location, desc, temp, feelsLike, humid, icon);
             } else {
                 updateWeather("Error", "Code " + data.cod, data.message, "", "", "");

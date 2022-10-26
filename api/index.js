@@ -20,12 +20,22 @@ app.get("/api/weather", (req, res) => {
             https.get(url, (httpRes) => {
                 httpRes.on("data", (data) => {
                     const weatherData = JSON.parse(data);
-                    console.log(weatherData);
                     res.send(weatherData);
                 });
             });
         }
     }
+});
+
+app.get("/api/weather-icon/:icon", (req, res) => {
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    let icon = req.params.icon;
+    let url = "https://openweathermap.org/img/wn/" + icon;
+    https.get(url, (httpRes) => {
+        httpRes.on("data", (icon) => {
+            res.send(icon);
+        });
+    });
 });
 
 module.exports = app;
